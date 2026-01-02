@@ -20,4 +20,4 @@ run: $(TARGET)
 	./$(TARGET)
 
 clean:
-	rm -f $(TARGET) $(TEST_TARGET) test_header_only
+	rm -f $(TARGET) $(TEST_TARGET)
