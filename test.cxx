@@ -73,6 +73,18 @@ void test_preserve_tokens() {
     std::cout << "test_preserve_tokens passed" << std::endl;
 }
 
+void test_emoji() {
+    tinysegmenter ts;
+    auto result = ts.segment("ことしは🤔2024年");
+    assert(result.size() == 5);
+    assert(result[0] == "ことし");
+    assert(result[1] == "は");
+    assert(result[2] == "🤔");
+    assert(result[3] == "2024");
+    assert(result[4] == "年");
+    std::cout << "test_emoji passed" << std::endl;
+}
+
 int main() {
     test_basic_segmentation();
     test_numbers();
@@ -80,6 +92,7 @@ int main() {
     test_katakana();
     test_preserve_list();
     test_preserve_tokens();
+    test_emoji();
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }
